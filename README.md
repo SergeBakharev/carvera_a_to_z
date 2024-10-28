@@ -1,6 +1,6 @@
 # Introduction
 
-v0.1 - Oct 2023
+v0.1 - Oct 2024
 
 The intent of this guide is to help new users of the Carvera CNC learn enough about both the big picture and the underlying technical details, to feel at ease with the machine, the workflow, and CNC lingo in general.
 
@@ -48,7 +48,7 @@ There are many ways to learn and use the Carvera, but the typical experience for
 * try cutting plastics or metal \(see [Usecases: cutting plastics](cutting-plastics.md) , [Usecases: cutting metal](cutting-metal.md)\)
 * at some point, witness the machine misbehave, blame the hardware or the software, start investigating, and \(often\) end up concluding that you messed up somewhere in the workflow. The [Troubleshooting & maintenance](maintenance.md) section has a few pointers, after that the user community and Makera's support team are your best bet.
 * somewhere along this path, outgrow Makera CAM and consider moving to more advanced [CAD, CAM, G-code](cad-cam-tools.md) tools.
-* after a while, begin to feel an itch for [HW upgrades](upgrading-the-machine.md).
+* after a while, begin to feel an itch for [Enhancements](enhancements.md) to the machine.
 
 ## **Feedback & credits**
 
