@@ -52,7 +52,7 @@ There are many ways to learn and use the Carvera, but the typical experience for
 
 ## **Feedback & credits**
 
-Thank you to Julien Heyman for your excellently written [Carvera CNC A to Z](https://Carveraenthusiasts.gitbook.io). This is mearly a fork with Carvera content replaced for Carvera specific content.
+Thank you to Julien Heyman for your excellently written [Shapeoko CNC A to Z](https://Shapeokoenthusiasts.gitbook.io). This is mearly a fork with Carvera content replaced for Carvera specific content.
 
 
 Comments/corrections/contributions are most welcome, you can contact me on the [Carvera Community Discord](https://discord.gg/NQ5r9jGNXV) where I post as **@PewPewPewLasers**.
