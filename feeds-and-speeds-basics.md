@@ -2,7 +2,7 @@
 
 The whole "feeds & speeds" topic is arguably the most daunting part of learning CNC.
 
-"**Feeds**" is feedrate, on some CNCs with a fixed tool and moving plate this is the speed at which the material is fed into the cutter, on a Shapeoko this is the speed of the gantry pushing the cutter into the material.
+"**Feeds**" is feedrate, on some CNCs with a fixed tool and moving plate this is the speed at which the material is fed into the cutter, on a Carvera this is the speed of the gantry pushing the cutter into the material.
 
 "**Speeds**" is the rotation speed of the endmill, i.e. RPM value.
 
@@ -80,9 +80,9 @@ $$
 This also means that if your CAM tool comes up with feedrates or RPMs that are not in the range of your machine's abilities \(_e.g._, recommended RPM lower than the minimum RPM of your router\), you can just scale both RPM **and** feedrate values by any factor, and it will still provide the same chipload. 
 {% endhint %}
 
-For a given chipload, some combinations are still better than other mathematically-equivalent ones though \(more on this below\). Since the feedrate/RPM combination is derived from the desired chipload value, let's first have a look at what the range of acceptable chipload values is for the Shapeoko.
+For a given chipload, some combinations are still better than other mathematically-equivalent ones though \(more on this below\). Since the feedrate/RPM combination is derived from the desired chipload value, let's first have a look at what the range of acceptable chipload values is for the Carvera.
 
-## Shapeoko chiploads guideline
+## Carvera chiploads guideline
 
 For the **minimum** chipload value to avoid rubbing, there is a large consensus in the CNC community that a value of **0.001''** \(0.0254mm\) is a good absolute lower limit guideline, at least for 1/4'' endmills and larger. It may need to be lowered to 0.0005'' for 1/8'' and smaller endmills.
 
@@ -94,9 +94,9 @@ The **maximum** reachable chipload depends on a lot of things, but mostly:
 
 * the **hardness of the material** being cut
 * the **type and diameter of the endmill** \(smaller teeth need to take smaller bites: the maximum chipload for a given endmill scales linearly with its diameter\)
-* the **toolpath** used \(how wide/deep the cutter is engaged\) and the **rigidity of the machine**: it is quite easy to forget that the Shapeoko is not as rigid as industrial CNCs, so endmill manufacturers recommendations may not be directly suitable for the Shapeoko. Any mechanical mod of the machine also impacts the max chipload capability.
+* the **toolpath** used \(how wide/deep the cutter is engaged\) and the **rigidity of the machine**: it is quite easy to forget that the Carvera is not as rigid as industrial CNCs, so endmill manufacturers recommendations may not be directly suitable for the Carvera. Any mechanical mod of the machine also impacts the max chipload capability.
 
-The Shapeoko's limits must also be accounted for: the absolute maximum theoretical chipload on a stock Shapeoko would be reached when using a single-flute endmill at the lowest RPM \(10,000RPM on the Makita router\) and at the fastest feedrate of 200 inch per minute, and that would be 200/\(1×10,000\) = 0.02'' = 0.5mm
+The Carvera's limits must also be accounted for: the absolute maximum theoretical chipload on a stock Carvera would be reached when using a single-flute endmill at the lowest RPM \(10,000RPM on the Makita router\) and at the fastest feedrate of 200 inch per minute, and that would be 200/\(1×10,000\) = 0.02'' = 0.5mm
 
 So all chiploads should be somewhere between 0.001'' and 0.02''.
 
@@ -104,7 +104,7 @@ So all chiploads should be somewhere between 0.001'' and 0.02''.
 Technically, the feedrate can go beyond 200ipm, if the associated GRBL limits parameters are set to a higher limit. In practice, feedrates above 200ipm are used for rapids only, there are very little usecases where actually cutting at higher than 200ipm would be useful. 
 {% endhint %}
 
-The following is an \(arguable\) table I am using as a personal reference, which I derived from analysis of a large number of feeds and speeds settings shared in the Shapeoko community, as well as my own experimentations. Do not take it for granted, start above 0.001'' and increase it incrementally \(by keeping RPM constant and increasing feedrate\) to find the limits for your machine and for a given material. Higher chiploads are definitely possible \(but may not be desirable\)
+The following is an \(arguable\) table I am using as a personal reference, which I derived from analysis of a large number of feeds and speeds settings shared in the Carvera community, as well as my own experimentations. Do not take it for granted, start above 0.001'' and increase it incrementally \(by keeping RPM constant and increasing feedrate\) to find the limits for your machine and for a given material. Higher chiploads are definitely possible \(but may not be desirable\)
 
 <table>
   <thead>
@@ -232,7 +232,7 @@ $$
 RPM = \frac{SFM(in \ feet\ per\ min)}{0.262 × endmill\_diameter(in\ inches)}
 $$
 
-In practice, for most of the materials cut on a Shapeoko, there is a wide range of acceptable SFMs, so RPM could initially be chosen pretty much anywhere within the router's RPM limits \(10k to 30k for the Makita/Carbide router, 16k to 27k for the Dewalt router, and typically a few hundred to several tens of kRPM for spindles\)
+In practice, for most of the materials cut on a Carvera, there is a wide range of acceptable SFMs, so RPM could initially be chosen pretty much anywhere within the router's RPM limits \(10k to 30k for the Makita/Carbide router, 16k to 27k for the Dewalt router, and typically a few hundred to several tens of kRPM for spindles\)
 
 * Low RPMs are quieter \(significantly so with a router\), but induce higher forces on the cutter \(more on this later\)
 * High RPMs induce lower cutting forces and generally provide better finish quality, but will also require higher associated feedrates to maintain a correct chipload: feeding faster can be a little scary at first, and leaves less time to react should anything go wrong.
@@ -254,7 +254,7 @@ $$
 Feedrate = Chipload×Nb\_Flutes × RPM= 0.003 × 3 × 24000 = 216\ ipm
 $$
 
-* That is above the default capability of the Shapeoko \(200ipm\), it would be scarily fast for cutting hard wood, and 24,000 RPM may sound too loud to your taste anyway. Let's say we decided to go for 16,000 RPM instead,  the required feedrate would become:
+* That is above the default capability of the Carvera \(200ipm\), it would be scarily fast for cutting hard wood, and 24,000 RPM may sound too loud to your taste anyway. Let's say we decided to go for 16,000 RPM instead,  the required feedrate would become:
 
 $$
 0.003 × 3 × 16000 = 144\ ipm
@@ -281,7 +281,7 @@ DOC is just as important as feeds & speeds to achieve a good cut, yet surprising
 
 The reason is probably that while there are mathematical recipes to choose feedrate and RPM for a given endmill geometry, the achievable DOC is much more tightly linked to the specific machine you are using, and specifically its rigidity and power.
 
-The Shapeoko is not as rigid nor as powerful as pro CNC machines, so DOC recommendations for these machines need to be dialed back, even when using perfect feeds and speeds.
+The Carvera is not as rigid nor as powerful as pro CNC machines, so DOC recommendations for these machines need to be dialed back, even when using perfect feeds and speeds.
 
 There is a strong dependency between DOC and WOC: since cutting forces increase with both DOC and WOC, you cannot cut very deep while using a very large stepover, that would put too much effort on the endmill. So the two choices are:
 
@@ -292,9 +292,9 @@ These two situations are illustrated below:
 
 ![](.gitbook/assets/page_80_800_redo.png)
 
-The _**small WOC, high DOC**_ approach is much preferable, as it spreads the heat and tool wear much more evenly along the length of the endmill. However, it requires specific toolpath strategies \(_e.g._ to initially clear material down to the required depth, to allow small WOC to be used for the rest of the cut\), this is covered in the [Toolpaths](toolpath-basics.md) section. This is a very popular approach when cutting metals on the Shapeoko, but its benefits apply to other materials too.
+The _**small WOC, high DOC**_ approach is much preferable, as it spreads the heat and tool wear much more evenly along the length of the endmill. However, it requires specific toolpath strategies \(_e.g._ to initially clear material down to the required depth, to allow small WOC to be used for the rest of the cut\), this is covered in the [Toolpaths](toolpath-basics.md) section. This is a very popular approach when cutting metals on the Carvera, but its benefits apply to other materials too.
 
-The _**large WOC, small DOC**_ approach only ever uses the tip of the endmill, so that part will wear out quickly while the rest of the endmill length of cut remains unused. But it is still a very common approach for pocketing and profile cuts on the Shapeoko, and it has simplicity going for it.
+The _**large WOC, small DOC**_ approach only ever uses the tip of the endmill, so that part will wear out quickly while the rest of the endmill length of cut remains unused. But it is still a very common approach for pocketing and profile cuts on the Carvera, and it has simplicity going for it.
 
 Unlike chiploads that NEED to be in a specific range to get good cuts, the situation is easier for DOC and WOC: you can just start with small, conservative values and then increase them to find the limit for your machine/endmill/material combination.
 
@@ -436,14 +436,14 @@ The direction of the cut \(climb versus conventional milling\) pertains to the t
 * for the same "thick-to-thin" reason, climb milling is a little more tolerant of less-than-perfectly-sharp endmills.
 * in conventional milling, the cutter flutes move against the direction of the feedrate, so chips are more likely to be pushed to the front of the cut, leading to chip recutting which is bad for finish quality. In climb milling, the chips tend to be pushed to the back of the endmill / behind the cut, so they are much less prone to recutting.
 * in climb milling, the router torque pushes in the same direction as the feedrate, while in conventional it fights against the feedrate, so the forces on the stepper motors are higher.
-* climb milling used to have a bad reputation for being dangerous to use on machines with a lot of backlash. While this was perfectly true on older manual mills, the point is moot on CNCs in general and the Shapeoko in particular.
+* climb milling used to have a bad reputation for being dangerous to use on machines with a lot of backlash. While this was perfectly true on older manual mills, the point is moot on CNCs in general and the Carvera in particular.
 
 So when all is said and done, climb milling wins on almost every aspect except deflection. The [Toolpaths](toolpath-basics.md#roughing-vs-finishing-toolpaths) section will cover the notion of "roughing" versus "finishing" toolpaths, and that will then open the way for the best approach: using **climb for roughing, then conventional for finishing**. 
 
 This way, climb and its many advantages is used for most of the cut, and the possible deflections happening during this roughing pass will be taken care of by the light conventional finishing pass \(where the drawbacks of conventional will be irrelevant, since this finishing pass puts such low efforts on the machine anyway, and chip evacuation is not a problem either\) 
 
 {% hint style="info" %}
-This being said, your CAM tool may or may not give you the option to select the milling direction \(climb or conventional\). At the time of writing, Carbide Create did not have this feature, so it generated all toolpaths using conventional milling.
+This being said, your CAM tool may or may not give you the option to select the milling direction \(climb or conventional\). At the time of writing, Makera CAM did not have this feature, so it generated all toolpaths using conventional milling.
 {% endhint %}
 
 ## MRR, Power, Torque, Force
@@ -456,7 +456,7 @@ $$
 
 This yields a value in cubic inches \(or cubic millimeters\) of material removed per minute, and therefore relates to how fast you can complete a job. There is always a compromise to be found between going faster but with a lower tool engagement \(low DOC and/or low WOC\), or going slower but with a higher tool engagement \(higher DOC or high WOC\), while staying within the bounds of what the machine can do. The interesting thing about the MRR figure is that it allows one to **compare** different combinations, and figure out which one is the most efficient \(time-wise\).
 
-Now if you want to figure out how close you are to the absolute/physical **limits** of the Shapeoko, \(yet\) another formula comes in the picture, to characterize the required power at the endmill level to achieve this MRR:
+Now if you want to figure out how close you are to the absolute/physical **limits** of the Carvera, \(yet\) another formula comes in the picture, to characterize the required power at the endmill level to achieve this MRR:
 
 $$
 Cutting \ power\ (in\ HP\ unit)= \frac{MRR}{K\_factor} = MRR × Unit\ Power
@@ -472,7 +472,7 @@ For example,
 
 Once you get this power value, you can compare it to your router's maximum output power. The Makita and DeWalt routers are rated at a max of 1.25HP \(932Watts\), but that is _input_ power, and the power efficiency of a router is not very good \(~50%\), so the max actual power at the cutter is more likely around 450W.
 
-And finally, even if the cutting power is within the range of your router, there is still the matter of the **cutting force** that the Shapeoko has to put on the endmill to move it through the material: 
+And finally, even if the cutting power is within the range of your router, there is still the matter of the **cutting force** that the Carvera has to put on the endmill to move it through the material: 
 
 ![](.gitbook/assets/page_95_800.jpg)
 
@@ -494,11 +494,11 @@ $$
 Cutting\ force= \frac{Cutting\ torque}{endmill\ radius}
 $$
 
-So all of this can be derived from the feedrate, WOC, DOC, endmill size, and material. And this cutting force can then be compared with the Shapeoko's limit estimated \(experimentally\) to be around **20 lbf** \(9Kg\)
+So all of this can be derived from the feedrate, WOC, DOC, endmill size, and material. And this cutting force can then be compared with the Carvera's limit estimated \(experimentally\) to be around **20 lbf** \(9Kg\)
 
 ## Wrapping up: suggested process
 
-A proposed workflow to determine a _reasonable starting point_ for feeds and speeds and DOCs on the Shapeoko for a given project that uses a specific **material** and **endmill,** is:
+A proposed workflow to determine a _reasonable starting point_ for feeds and speeds and DOCs on the Carvera for a given project that uses a specific **material** and **endmill,** is:
 
 * select a **target chipload** in the recommended chipload range ****for this material+endmill combination
   * refer to my proposed guideline table, or roll your own. Aim for the low end of the range, to reduce cutting force.
@@ -506,7 +506,7 @@ A proposed workflow to determine a _reasonable starting point_ for feeds and spe
 * if stepover is less than 50%, **adjust target chipload for chip thinning**.
 * select **target RPM** as the maximum value you can tolerate and feel comfortable using.
 * determine the **required feedrate** for this RPM to achieve the adjusted target chipload
-  * if computed feedrate exceeds the Shapeoko limit, choose a lower RPM value and recompute feedrate.
+  * if computed feedrate exceeds the Carvera limit, choose a lower RPM value and recompute feedrate.
 * determine **plungerate** depending on the material.
 * check **deflection** value to make sure there is no risk of breaking the tool, and to optimize dimensional accuracy and finish quality.
 * check that cutting **power** is within the router's limits.
@@ -523,28 +523,9 @@ While predefined recommendations for common endmills and materials are very usef
 
 Whether or not you _need_ a feeds & speeds calculator is debatable: most people use a limited number of combinations of material/endmill sizes anyway, in which case relying on a few good recipes for your machine is enough. The real value of calculators is in **optimizing** the feeds & speeds for a particular situation, and to see the effects of any parameter change on the rest of them.
 
-A pretty neat feeds and speeds worksheet has been put together by @gmack on the Shapeoko forum \(which he derived from an original worksheet from the NYCCNC website\). I have attached a version here for convenience, but you may want to check if a more recent version is available on the forum.
-
-![](.gitbook/assets/gmack_worksheet.png)
-
-{% file src=".gitbook/assets/2019-08-11-speeds-and-feeds-workbook.xlsx" caption="gmack\'s advanced feeds and speeds worksheet" %}
-
-1. fill-in the **specs of your router** or spindle \(once\).
-2. fill-in the **specs of the selected endmill**, and the **target chipload value** you chose \(chip thinning will be taken into account automatically depending on WOC value\)
-3. if you care about power/force analysis, look-up the **K-factor** for the material being cut \(there's a list in a separate tab of the worksheet\) and update it here.
-4. select **target RPM** value \(or alternatively SFM, then RPM will be derived from it\). 
-5. select **WOC and DOC** \(depending on your machining style\) 
-6. The **required feedrate** to reach the target chipload will be computed. You can alternatively choose to override it with a given feedrate value \(and see what this does to chipload displayed below\), _or_ to forget about chipload and use a given cutting force as the ultimate target. Either way, the feedrate to be used will be displayed at the right end of this line.
-7. You can then check the analysis of **deflection, cutting force, and power** in the lower part of the worksheet.
-
-Then play with the input values to compare various cutting scenarios while staying within the machine's hard limits \(max RPM, max feedrate, max power, and max cutting force\)
-
 {% hint style="info" %}
+<!--- TODO --->
 The latest version of **@gmack**'s worksheet is available in the forum here: [https://community.carbide3d.com/t/speeds-feeds-power-and-force-sfpf-calculator/16237](https://community.carbide3d.com/t/speeds-feeds-power-and-force-sfpf-calculator/16237)
-{% endhint %}
-
-{% hint style="info" %}
-Once you determine good feeds and speeds and confirm that it is cutting correctly, it is useful to capture a snapshot of the worksheet for that particular usecase for future reference \(just duplicate the tab in the worksheet\)
 {% endhint %}
 
 If you still feel overwhelmed or don't care about optimizing power, force and deflection, I derived a more basic version:  
@@ -558,7 +539,7 @@ If you still feel overwhelmed or don't care about optimizing power, force and de
 3. select an **RPM** value
 4. select **WOC** and **DOC** based on the recommanded values on the right \(derived from the selected endmill diameter\)
 
-This basic worksheet will just compute the required feedrate to get the desired chipload \(taking chip thinning into account\). If the computed feedrate turns red, it is beyond the limit of the Shapeoko, and you should select a lower RPM and/or use an endmill with a lower flute count.
+This basic worksheet will just compute the required feedrate to get the desired chipload \(taking chip thinning into account\). If the computed feedrate turns red, it is beyond the limit of the Carvera, and you should select a lower RPM and/or use an endmill with a lower flute count.
 
 ## Telltale signs of wrong F&S
 

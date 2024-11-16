@@ -7,7 +7,7 @@ Workholding can be confusing at first because there are many \(many\) ways to do
 * to maximise clearance/access to the faces of the stock to be machined.
 * that it is easy/convenient/quick enough to install and remove the material.
 
-This section does not intend to cover them all, but to present the most popular ones for the Shapeoko. But first, a small detour to talk about wasteboards.
+This section does not intend to cover them all, but to present the most popular ones for the Carvera. But first, a small detour to talk about wasteboards.
 
 ## Wasteboard
 
@@ -18,7 +18,7 @@ Many projects require cutting all the way through the stock material, _e.g._ to 
 * mistakes in the CAM design/G-code, or mechanical issues, might cause the endmill to cut deeper than expected, it would be too bad to damage the machine baseboard.
 * the stock must lay on a surface that is flat and square to the machine's Z axis, and the simplest way to achieve this is to use the machine itself to surface its own base \(see [Squaring, surfacing, tramming](squaring.md)\), so it should be a replaceable part.
 
-It is _possible_ to use the Shapeoko's MDF baseboard itself as a wasteboard, but who wants to be replacing the baseboard of their machine? \(considering it would mean disassembling it, reassembling with a fresh baseboard, and then squaring everything again\). It is much more convenient to use a **supplementary** wasteboard bolted onto the baseboard.
+It is _possible_ to use the Carvera's MDF baseboard itself as a wasteboard, but who wants to be replacing the baseboard of their machine? \(considering it would mean disassembling it, reassembling with a fresh baseboard, and then squaring everything again\). It is much more convenient to use a **supplementary** wasteboard bolted onto the baseboard.
 
 The \(only?\) downside to using a supplementary wasteboard is that it reduces the maximum Z travel \(i.e. the maximum possible height for a workpiece\)
 
@@ -29,7 +29,7 @@ The wasteboard needs to be held onto the machine's baseboard, in such a way that
 {% hint style="info" %}
 Make sure the wasteboard X/Y dimensions are such that the router will be able to reach the whole area, with some margin: this will be important for surfacing the wasteboard. The max dimensions vary depending on the machine \(and accessories\) setup, so actually moving the router in the four corner positions, measuring where the endmill ends up being, and making the wasteboard area slightly smaller than that, is an easy way to get this right.
 
-Note that the wasteboard dimensions cannot match the advertised cutting area of your Shapeoko model, since some of that cutting area is the overhang at the front of the machine.
+Note that the wasteboard dimensions cannot match the advertised cutting area of your Carvera model, since some of that cutting area is the overhang at the front of the machine.
 
 For the thickness of the wasteboard, make sure to include margin for the recessed bolt heads and enough material on top of that to allow for a few future resurfacing operations.
 {% endhint %}
@@ -44,7 +44,7 @@ which requires to have threaded holes available in various places across the wor
 
 ![](.gitbook/assets/fresh_wasteboard.png)
 
-There are many different ways to make a "sea of holes" wasteboard. A popular option is to use the Shapeoko itself to drill the holes into either its own baseboard or the supplementary wasteboard, and then manually install **threaded inserts** in the holes.
+There are many different ways to make a "sea of holes" wasteboard. A popular option is to use the Carvera itself to drill the holes into either its own baseboard or the supplementary wasteboard, and then manually install **threaded inserts** in the holes.
 
 Another very popular option to attach clamps is to use **T-tracks** inserted at regular intervals between "strips" of wasteboard area:
 
@@ -128,7 +128,7 @@ If cutting thin sheets of soft material \(e.g brass, copper\) the force required
 
 A vise is typically used when cutting high-precision metal parts, since it provides excellent rigidity. It's also interesting when productivity and/or repeatability over multiple runs of the same job matter: the vise provides a good reference point to align the stock consistently, and installation/removal is very quick. Or more simply, whenever there is a need to hold a piece that cannot sit flat on the wasteboard \(_e.g._ anything round\)
 
-The max width of the vise jaw is the main limitation, and its height may be a concern, especially on a machine like the Shapeoko that has a somewhat limited Z travel. A low-profile vise, that can be installed and removed from the machine depending on the job at hand, is a good option to have:
+The max width of the vise jaw is the main limitation, and its height may be a concern, especially on a machine like the Carvera that has a somewhat limited Z travel. A low-profile vise, that can be installed and removed from the machine depending on the job at hand, is a good option to have:
 
 ![](.gitbook/assets/workholding_vice.png)
 

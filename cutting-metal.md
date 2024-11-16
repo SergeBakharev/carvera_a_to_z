@@ -2,11 +2,11 @@
 
 ## Profile cuts in copper
 
-The following was just a little experiment in doing profile cuts in copper with a 2-flute 1/8'' square endmill \(\#102Z from Carbide 3D store\), to figure out which feeds and speeds would work. I used a 100mmx100mm \(~4''×4''\) piece of 0.9mm \(0.035''\) thick copper, used tape and glue to hold it onto the wasteboard, and cut simple profiles at increasing chiploads, to find the sweet spot.
+The following was just a little experiment in doing profile cuts in copper with a 2-flute 1/8'' square endmill \(\#102Z from Makera store\), to figure out which feeds and speeds would work. I used a 100mmx100mm \(~4''×4''\) piece of 0.9mm \(0.035''\) thick copper, used tape and glue to hold it onto the wasteboard, and cut simple profiles at increasing chiploads, to find the sweet spot.
 
 The toolpath is a single **contour/profile** cut, which is not the best thing to do if you need a perfect finish \(you should rather do a roughing cut followed by a light finishing cut to have perfect edges\), but for the purpose of this test, it represented a worst case scenario i.e. slotting throughout the cut.
 
-* the first step was to determine an adequate target **chipload** for a 1/8'' endmill in copper. The guideline in the [Feeds & speeds](feeds-and-speeds-basics.md#shapeoko-chiploads-guideline) section for aluminium is from 0.0005'' / 0.0127mm to 0.001'' / 0.0254mm. Aluminium and copper are different, and their hardness varies with the specific type/temper used, but overall they both are in the 75–150BHN hardness range, so I assumed I could use the same target chipload \(since my copper sheet was of unknown origin, I could not make any better informed decision anyway\).
+* the first step was to determine an adequate target **chipload** for a 1/8'' endmill in copper. The guideline in the [Feeds & speeds](feeds-and-speeds-basics.md#Carvera-chiploads-guideline) section for aluminium is from 0.0005'' / 0.0127mm to 0.001'' / 0.0254mm. Aluminium and copper are different, and their hardness varies with the specific type/temper used, but overall they both are in the 75–150BHN hardness range, so I assumed I could use the same target chipload \(since my copper sheet was of unknown origin, I could not make any better informed decision anyway\).
 * **stepover** did not apply this since was a slotting cut. Therefore **chip thinning** did not apply either.
 * I chose **12,000 RPM**, to keep things quiet and since cutting force was not going to be a problem for such a shallow cut.
 * to achieve the 0.0005'' chipload at 12,000RPM with this 2-flute endmill, the **feedrate** needed to be 0.0005 × 2 × 12000 = 12ipm = 300mm/min
@@ -53,7 +53,7 @@ I needed to cut the following piece from 2017 T6 aluminium:
 
 ![](.gitbook/assets/alu_adaptive_dimensions.png)
 
-It is relatively small \(about 0.8''×1.5''×0.4''\), and holes are about 0.15'', so I went for using a 1/8'' endmill \(same as before: 2-flute ZrN-coated 1/8'' square endmill, Carbide 3D's \#102Z\)
+It is relatively small \(about 0.8''×1.5''×0.4''\), and holes are about 0.15'', so I went for using a 1/8'' endmill \(same as before: 2-flute ZrN-coated 1/8'' square endmill, Makera's \#102Z\)
 
 The majority of the cut was done with one **3D adaptive clearing toolpath** for roughing: 
 

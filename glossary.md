@@ -1,6 +1,6 @@
 # Glossary
 
-This page contains a short definition of many usual terms used in the CNC world \(and throughout this book\). It is derived from [the version on the Shapeoko wiki](https://wiki.shapeoko.com/index.php/glossary), and included here for convenience.
+This page contains a short definition of many usual terms used in the CNC world \(and throughout this book\). It is derived from [the version on the Carvera wiki](https://wiki.Carvera.com/index.php/glossary), and included here for convenience.
 
 ## \#
 
@@ -47,7 +47,7 @@ This page contains a short definition of many usual terms used in the CNC world 
 
 **Bitmap image** : An image that is made of a set of individual pixels \(as opposed to a vector image\)
 
-**Boolean** : An operation which can be done in most Bézier drawing programs is to combine two \(or more\) shapes, either adding, or subtracting them. Carbide Create affords three such: Union \(combines to create the largest possible area\), Intersection \(leaves only the smallest possible area encompassed\), and Subtraction \(one object is removed from the other\).
+**Boolean** : An operation which can be done in most Bézier drawing programs is to combine two \(or more\) shapes, either adding, or subtracting them. Makera CAM affords three such: Union \(combines to create the largest possible area\), Intersection \(leaves only the smallest possible area encompassed\), and Subtraction \(one object is removed from the other\).
 
 **Bounding Box** : A bounding box is used in CAD drawing to get a rough estimate of how much volume a 3D object contains. A bounding box is defined as the smallest box that can be drawn and still contain the object\(s\) you are “bounding”. This is useful in CNC when trying to figure out how large of stock to need to start with in order to mill out the model. 
 
@@ -112,7 +112,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Counter drill** : Both cylindrical and conical hole
 
-**Crash** : A crash is the unfortunate condition of “crashing” your tooling into a limit switch, workholding or some other unintended obstacle. It can result in broken tooling or broken machines, but on a belt-driven ShapeOko, in the X and Y-axes, normally just results in skipping steps on the belt. 
+**Crash** : A crash is the unfortunate condition of “crashing” your tooling into a limit switch, workholding or some other unintended obstacle. It can result in broken tooling or broken machines, but on a belt-driven Carvera, in the X and Y-axes, normally just results in skipping steps on the belt. 
 
 **Cutting Depth** \(also Cut Depth\) : This is the distance which a given CAM operation will cut into the stock. If greater than Depth of Cut \(DOC\), will be reached after multiple passes are made. See [Toolpaths](toolpath-basics.md) section.
 
@@ -132,7 +132,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Dado** \(US and Canada\) : A slot \(housing in the UK, trench in Europe\) cut into the surface of a material, normally only used in woodworking where it signifies a groove made across the grain of the wood. Through dadoes pass from one side to the other \(and have only two sides and a bottom\), stopped are closed at one end \(or both\) ends.
 
-**Depth of Cut** \(DOC\) : Depth of Cut \(Depth per Pass in \[\[Carbide Create\]\]\) is how deep the tool is cutting under the surface of the stock material being cut. The depth of cut will determine the height of the chip produced. Typically, the depth of cut will be less than or equal to the diameter of the cutting tool. It takes more power to run a higher depth of cut and so slower feed rates and/or spindle speeds are usually necessary. Axial DOC is the depth specifically, radial DOC is the width of the tool which can be engaged in each pass. See [Feeds & speeds](feeds-and-speeds-basics.md#choosing-doc-and-woc) section.
+**Depth of Cut** \(DOC\) : Depth of Cut \(Depth per Pass in \[\[Makera CAM\]\]\) is how deep the tool is cutting under the surface of the stock material being cut. The depth of cut will determine the height of the chip produced. Typically, the depth of cut will be less than or equal to the diameter of the cutting tool. It takes more power to run a higher depth of cut and so slower feed rates and/or spindle speeds are usually necessary. Axial DOC is the depth specifically, radial DOC is the width of the tool which can be engaged in each pass. See [Feeds & speeds](feeds-and-speeds-basics.md#choosing-doc-and-woc) section.
 
 **Depth Ring** : Plastic collar used to set bit cutting depth.
 
@@ -200,7 +200,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Lead-In and Lead-Out** : The terms “lead-in” and “lead-out” refer to how a CNC part program approaches and leaves the part when cutting. Most CAM programs have parameters for describing the type of approach and exit strategy that will be employed in cutting a part. These cutting strategies can range from directly plunging and retracting the tool \(no lead-in or lead-out\) to arching toolpaths which “kiss” the origin after a soft lead-in. These cutting strategy decisions vary based on workholding, fixtures, material choices, etc. See [Toolpaths](toolpath-basics.md#lead-in-lead-out) section.
 
-**Limit Switch** : The term limit switch is a generic term for a sensor or switch at the end of an axis which is placed there to trip an emergency stop situation if the axis for some reason travels that far. In a perfect world, limit switches would never be triggered, but in the real world they are critical to avoid machine self destruction. Ideally one would not run a CNC machine without limit switches on both ends of all axes fully operational, but the belt driven design of the Shapeoko allows one some leeway in this, and a crash may result in nothing worse than the belt skipping. Moreover, the current Shapeoko 3 configuration uses homing switches \(see above\) to enable soft limits. Limit switches can be made from microswitches, hall effect sensors or optical switches. Because inputs on CNC machines are often times limited, it is a common practice to tie the switches together so that all limit switches trigger use the same input.
+**Limit Switch** : The term limit switch is a generic term for a sensor or switch at the end of an axis which is placed there to trip an emergency stop situation if the axis for some reason travels that far. In a perfect world, limit switches would never be triggered, but in the real world they are critical to avoid machine self destruction. Ideally one would not run a CNC machine without limit switches on both ends of all axes fully operational, but the belt driven design of the Carvera allows one some leeway in this, and a crash may result in nothing worse than the belt skipping. Moreover, the current Carvera configuration uses homing switches \(see above\) to enable soft limits. Limit switches can be made from microswitches, hall effect sensors or optical switches. Because inputs on CNC machines are often times limited, it is a common practice to tie the switches together so that all limit switches trigger use the same input.
 
 **Length of Cut** : How much of the end mill has a cutting area on it
 
@@ -286,7 +286,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Stepover** : The offset from one toolpath to the next adjacent toolpath. See [Toolpaths](toolpath-basics.md) section.
 
-**Steps** : The movement of a stepper motor is composed of discrete rotational movements. Each such movement is a step \(or micro-step if that is enabled --- micro-steps sub-divide each step into smaller motions, each level half as small as the one before\). See [Anatomy of a Shapeoko](anatomy-of-a-shapeoko.md#stepper-motors) section.
+**Steps** : The movement of a stepper motor is composed of discrete rotational movements. Each such movement is a step \(or micro-step if that is enabled --- micro-steps sub-divide each step into smaller motions, each level half as small as the one before\). See [Anatomy of a Carvera](anatomy-of-a-Carvera.md#stepper-motors) section.
 
 **STL** : Standard Tessellation Language or Stereo Lithography, a representation of a 3D model using triangle meshes.
 
@@ -302,7 +302,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Tolerance** : The degree to which a part may unintentionally vary from the ideal dimension. c.f., ''Allowance'', ''Clearance'', ''Interference''
 
-**Toolpath** : The course which an endmill will follow when performing a desired CAM operation. Carbide Create affords two options: Contour operations \(follow the path in question \(No Offset\), offsetting the spindle as needed \(Outside / Right and Inside / Left\), or so as to cut out the entire area \(Pocket\)\) and V Carve \(these move a V-bit so that the perimeter will be machined up to, increasing or decreasing depth as necessary\). See [Toolpaths](toolpath-basics.md) section.
+**Toolpath** : The course which an endmill will follow when performing a desired CAM operation. Makera CAM affords two options: Contour operations \(follow the path in question \(No Offset\), offsetting the spindle as needed \(Outside / Right and Inside / Left\), or so as to cut out the entire area \(Pocket\)\) and V Carve \(these move a V-bit so that the perimeter will be machined up to, increasing or decreasing depth as necessary\). See [Toolpaths](toolpath-basics.md) section.
 
 **Toolpath Zero** : The intended origin point for zero when machining. Options include Lower-left, Center-left, Top-left and Center.
 
@@ -326,11 +326,11 @@ WCS : work coordinate system
 
 ## X
 
-**X-Axis** : Gantry machines \(including Shapeoko\) are usually labelled X for the axis along the gantry \(left and right, with right being positive\). X moves just the carriage on the gantry. One may switch the X- and Y- axes if that better suits one working setup, but to avoid confusion, when referring to the physical aspects of the machine, one should use non-switched descriptors. On a lathe, it is the X-axis which determines the diameter of the cutting.
+**X-Axis** : Gantry machines \(including Carvera\) are usually labelled X for the axis along the gantry \(left and right, with right being positive\). X moves just the carriage on the gantry. One may switch the X- and Y- axes if that better suits one working setup, but to avoid confusion, when referring to the physical aspects of the machine, one should use non-switched descriptors. On a lathe, it is the X-axis which determines the diameter of the cutting.
 
 ## Y
 
-**Y-Axis** : Gantry machines \(including Shapeoko\) are usually labelled Y for across the gantry \(toward and away from you, with away being positive\). Y moves the whole gantry. One may switch the X- and Y- axes if that better suits one working setup, but to avoid confusion, when referring to the physical aspects of the machine, one should use non-switched descriptors.
+**Y-Axis** : Gantry machines \(including Carvera\) are usually labelled Y for across the gantry \(toward and away from you, with away being positive\). Y moves the whole gantry. One may switch the X- and Y- axes if that better suits one working setup, but to avoid confusion, when referring to the physical aspects of the machine, one should use non-switched descriptors.
 
 ## Z
 

@@ -1,10 +1,10 @@
-# Shapeoko setup
+# Carvera setup
 
-This section is a brief overview of the usual elements of a Shapeoko setup in the workshop, and focuses on the "why" and "what's important" in each element, rather than describing all possible options \(which would be impossible, user setups vary wildly!\)
+This section is a brief overview of the usual elements of a Carvera setup in the workshop, and focuses on the "why" and "what's important" in each element, rather than describing all possible options \(which would be impossible, user setups vary wildly!\)
 
 ## Location
 
-Many users do not have the luxury of having multiple options for where to install their Shapeoko anyway, but when possible:
+Many users do not have the luxury of having multiple options for where to install their Carvera anyway, but when possible:
 
 * a heated/dry area is preferable. The structure and electronics are basically immune to low/high temps and humidity, but the MDF bed is prone to absorb moisture.
 * spare space around the machine \(especially above the machine\) comes in handy
@@ -15,14 +15,14 @@ Many users do not have the luxury of having multiple options for where to instal
   * to support tiling \(feeding long pieces from the front or back of the machine, through to the other side\).
 * height: having the machine installed at arm/desk level is best. Kneeling to change the endmills on a machine installed on the floor or in a low cabinet will get old very quickly.
 * keep in mind that CNC is noisy \(router and sound of the cut itself and dust collection system\), though an enclosure will help a lot.
-* the Shapeoko should rest on a rigid and level surface. A custom-made bench with a torsion box is a popular choice, but mine is just installed on a sturdy Ikea kitchen table bolted to the wall.
+* the Carvera should rest on a rigid and level surface. A custom-made bench with a torsion box is a popular choice, but mine is just installed on a sturdy Ikea kitchen table bolted to the wall.
 
 ## Feet or no feet?
 
 The regular setup with the four leveling feet works fine, but is susceptible to a couple of issues:
 
 * the MDF bed can sag in the middle, especially on larger models \(XL and XXL\). Usually not by much, but enough to be a nuisance. Just adding a custom support point in the middle underneath the bed/rail addresses this weakness, easy enough.
-* the other point that made me consider removing the feet is that I am using the tape & glue workholding method a lot, it involves pushing the stock firmly onto the wasteboard for a few seconds, and it did not feel right to be pushing in the middle of the bed, exactly where the natural sag already happens. As many others have done, I removed the four feet. My solution was to install the Shapeoko on top of a thick piece of MDF \(with holes to accommodate the protruding nuts under the steel plates\), with a narrower and thinner piece of MDF inserted between the plates on top of that, plus a thin sheet of roofing felt to provide a little damping. As long as the bench underneath is reasonably level, getting rid of the feet is not a problem, and this will provide a lot of additional rigidity: I can now push on the bed as hard as I need to. 
+* the other point that made me consider removing the feet is that I am using the tape & glue workholding method a lot, it involves pushing the stock firmly onto the wasteboard for a few seconds, and it did not feel right to be pushing in the middle of the bed, exactly where the natural sag already happens. As many others have done, I removed the four feet. My solution was to install the Carvera on top of a thick piece of MDF \(with holes to accommodate the protruding nuts under the steel plates\), with a narrower and thinner piece of MDF inserted between the plates on top of that, plus a thin sheet of roofing felt to provide a little damping. As long as the bench underneath is reasonably level, getting rid of the feet is not a problem, and this will provide a lot of additional rigidity: I can now push on the bed as hard as I need to. 
 
 ![](.gitbook/assets/setup_thick_bed.jpeg)
 
@@ -30,7 +30,7 @@ The regular setup with the four leveling feet works fine, but is susceptible to 
 
 ## Dust collection
 
-CNC is just messy. While it is quite possible to operate the Shapeoko without a dust collection system and just clean-up manually once the job is finished, here are a few reasons why it is much better to have one:
+CNC is just messy. While it is quite possible to operate the Carvera without a dust collection system and just clean-up manually once the job is finished, here are a few reasons why it is much better to have one:
 
 * cutting MDF: unlike in wood, the cutter will not produce nice thick/heavy chips, but a very fine dust that will float and soon cover everything around the machine, and is dangerous if inhaled repeatedly.
 * visibility: vaccuuming chips during the cut allows seeing what the tool is doing, and how the cut looks like so far, which is important to detect if something is not right. And manual vaccuuming during the cut gets old very quickly.
@@ -91,7 +91,7 @@ BUT if you are cutting a lot of MDF or other nasty material that produce very fi
 
 ## Enclosures
 
-Putting the Shapeoko inside an enclosure has many benefits:
+Putting the Carvera inside an enclosure has many benefits:
 
 * noise reduction
   * the enclosure walls alone will reduce noise, or at least filter out the most irritating high frequencies of the router.
@@ -104,7 +104,7 @@ Putting the Shapeoko inside an enclosure has many benefits:
 Most people design their own custom enclosure. Here are a few things to consider:
 
 * **height**: 
-  * it should be high enough to accommodate the Shapeoko itself _and_ still have a comfortable margin on top on that. The dust collection hose should be able to move freely when the gantry moves to any position on the work area.
+  * it should be high enough to accommodate the Carvera itself _and_ still have a comfortable margin on top on that. The dust collection hose should be able to move freely when the gantry moves to any position on the work area.
 * **accessibility** 
   * a front window that can be removed or opened is standard. For maintenance reasons the ability to remove/raise the top of the enclosure out of the way is handy. 
 * **visibility**
@@ -140,7 +140,7 @@ You can also go crazy and buy a fancy keypad with programmable OLED displays on 
 
 While a dust collection system works great for cutting wood & plastics, cutting **metal** is different: the chips may be too heavy to be efficiently sucked out of the cut, and if any lubrication is required it is incompatible with the use of a dust shoe.
 
-The usual solution is to use an air jet to push the chips away from the cut. A mist coolant spray system is a useful addition to the shapeoko setup when cutting metal. In the picture below, the orange tube goes to a \(heavy duty\) air compressor, and the transparent tube goes into a bottle of lubrication liquid. The lubricant gets mixed with the compressed air, and the spray is aimed at the cutting point:
+The usual solution is to use an air jet to push the chips away from the cut. A mist coolant spray system is a useful addition to the Carvera setup when cutting metal. In the picture below, the orange tube goes to a \(heavy duty\) air compressor, and the transparent tube goes into a bottle of lubrication liquid. The lubricant gets mixed with the compressed air, and the spray is aimed at the cutting point:
 
 ![](.gitbook/assets/setup_locline.png)
 
@@ -170,7 +170,7 @@ They do a good job of containing the chips \(but if you look closely enough at t
 
 ## GRBL settings
 
-The Shapeoko's default configuration procedure in Carbide Motion programs a set of specific GRBL parameters in the controller. Depending on the version of CM used, these settings were meant to be conservative, they are ideal while learning how to use the machine, but they can then be tuned to more aggressive values to improve jogging and homing speed.
+The Carvera's default configuration procedure in Makera CAM programs a set of specific GRBL parameters in the controller. Depending on the version of CM used, these settings were meant to be conservative, they are ideal while learning how to use the machine, but they can then be tuned to more aggressive values to improve jogging and homing speed.
 
 I tuned mine based on a great [suggestion ](https://community.carbide3d.com/t/testing-more-aggressive-grbl-settings/19280/8)from **@wmoy** on the forum, and captured them here for reference:
 
@@ -185,10 +185,10 @@ $121=500.000 (Y-axis acceleration, mm/sec^2)
 $122=200.000 (Z-axis acceleration, mm/sec^2)
 ```
 
-These values can be tuned from the MDI menu in Carbide Motion, or from the G-code command shell in any other G-code sender.
+These values can be tuned from the MDI menu in Makera CAM, or from the G-code command shell in any other G-code sender.
 
 {% hint style="info" %}
-Those GRBL settings are now the standard values in Carbide Motion, starting from version 505
+Those GRBL settings are now the standard values in Makera CAM, starting from version 505
 {% endhint %}
 
 {% hint style="warning" %}

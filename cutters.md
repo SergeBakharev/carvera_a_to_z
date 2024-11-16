@@ -11,7 +11,7 @@ It's easy to be overwhelmed at first by the variety of cutters and their charact
   * a large shank is better for reducing deflection.
   * the choice of shank diameter is constrained by the available collets.
 * the **diameter of its cutting part**
-  * the most common sizes used on the Shapeoko are 1/4'' \(6.35mm\), 1/8'' \(3.175mm\), 1/16'' \(1.5875mm\), and 1/32'' \(~0.8mm\), and their metric cousins \(6, 3, 2, and 1mm\).
+  * the most common sizes used on the Carvera are 1/4'' \(6.35mm\), 1/8'' \(3.175mm\), 1/16'' \(1.5875mm\), and 1/32'' \(~0.8mm\), and their metric cousins \(6, 3, 2, and 1mm\).
   * the smallest feature size in a design determines the smallest endmill diameter needed.
   * smaller endmills are more fragile and more sensitive to runout \(more on this below\).
 * the **length of its cutting part \(**Length of cut / **LOC\)**, and its overall length \(**OAL**\).
@@ -31,7 +31,7 @@ It's easy to be overwhelmed at first by the variety of cutters and their charact
   * **AlTiN** \(Aluminium Titanium Nitride\) coating is good for steel/ferrous-metals.
 * whether it is **center cutting** or not:
   * most are, it means they have the ability to plunge into the material \(vertically\), like a drill bit does.
-  * non-center cutting tools are more commonly used on manual power tools, think router bits. It is _possible_ to use them on a Shapeoko, but it requires a very careful CAM design.
+  * non-center cutting tools are more commonly used on manual power tools, think router bits. It is _possible_ to use them on a Carvera, but it requires a very careful CAM design.
 * the **helix angle**, if it's a spiral endmill:
   * depending on the helix angle, cutting forces will be oriented differently between the axial and radial directions: it's not really something you should worry about.
 * the **direction** of rotation
@@ -47,7 +47,7 @@ It's easy to be overwhelmed at first by the variety of cutters and their charact
 * **downcut**: it pushes chips downward when cutting, so is not efficient to evacuate them from the cutting area. It tends to do the opposite as an upcut, i.e. leaving produce a clean cut at the top edges of the cuts, but potential tear out at the bottom of pockets.
 * **compression**: the flute geometry is such that it combines an upcut section at the bottom of the tool, and a downcut section at the other end of the cutting part, so for certain pocket depths it can give a nice finish both at the bottom and top of pockets.
 
-Here's an example for a 3-flute, 1/4'', upcut square endmill \(codename "\#201" on Carbide 3D store\)
+Here's an example for a 3-flute, 1/4'', upcut square endmill \(codename "\#201" on Makera store\)
 
 ![](.gitbook/assets/tools_3flute_025inch.png)
 
@@ -183,34 +183,13 @@ Refer to the runout section in [Dimensional accuracy](x-y-z-calibration.md#manag
 
 ## Endmills & collets starter set
 
-A common question when buying the Shapeoko is "which endmills and collets should I get?" 
+A common question when buying the Carvera is "which endmills and collets should I get?" 
 
 * the answer of course is "it depends" \(on the nature of your projects\)
-* the Shapeoko ships with a 1/4'' square endmill \(\#201 from Carbide 3D store\), and the router ships with a 1/4'' collet: this is enough to get started and make a lot of beginner projects actually.
-* getting a couple of spare 1/4'' square endmills is a good idea: sooner or later, the original \#201 will wear out \(or chip, or even break in the event of a really big mistake\)
-* the usual next step is to realize that 1/4'' is too large to cut small features: getting a couple of 1/8" square endmills will not go to waste anyway.
-  * this comes with the need to get a 1/8'' collet, or at least a collet adapter. 
-* if you intend to use 3D toolpaths and curvy surfaces, get a ballnose endmill \(1/4'' or 1/8'' or smaller depending on the size/precision of your target projects\)
+* the Carvera ships with a number of  1/8'' endmills and collet: this is enough to get started and make a lot of beginner projects actually.
+* getting a couple of spare 1/8'' square endmills is a good idea: sooner or later, the original will wear out \(or chip, or even break in the event of a really big mistake\)
+* if you intend to use 3D toolpaths and curvy surfaces, get a ballnose endmill
 * get one V-bit: V-carving is quite easy and satisfying, you will probably want to try it, and it's a very common way to engrave text. They come in different shapes \(angles\), the most common ones are 60 degrees and 90 degrees. Make sure you invest in a good quality V-bit, it makes a big difference \(while it is easier to get away with using cheap square endmills\) 
 * if you intend to cut mostly plastics, do get an O-flute square endmill.
-* if you intend to cut mostly aluminium, ZrN-coated endmills will help.
-* a surfacing bit is useful to reduce the time for surfacing your wasteboard, but honestly not required in the starter set, a 1/4'' endmill will do fine.
+* if you intend to cut mostly aluminium, DLC-coated endmills will help.
 * the other types are very specific, so unless you know you will need them for sure, they can wait. 
-
-So my recommendation for a **starter pack** would be something like:
-
-* 2 × 1/4'' square endmills \(2 or 3 flutes\) to complement the one that ships with the machine
-* 1 × 1/8'' collet for your router \(or at least a collet adapter to fit 1/8" in the 1/4" collet\)
-* 2 × 1/8'' square endmills \(2 flutes\)
-* 1 × 60° V-bit 
-* 1 × 90° V-bit
-* \(optionally for 3D work\) 2 × 1/4'' ballnose endmills
-* \(optionally for plastics\) 1 × O-flute 1/4'' square endmill + 1 × O-flute 1/8" square endmill
-* \(optionally for aluminium\) a set of ZrN-coated 1/4'' and 1/8'' endmills
-
-
-
-
-
-
-
