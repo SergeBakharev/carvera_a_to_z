@@ -19,7 +19,7 @@ The design is very straightforward but has a lot of deep pockets, with tight cor
 So I first created a roughing toolpath using a large \(6mm\) endmill, to do most of the clearing. 
 
 * an **upcut** endmill is used, to have good chip evacuation and since there will be a finishing pass afterwards anyway to clean the rough top edges of the pockets.
-* Using the **target chipload guideline** \(see [Feeds & speeds](feeds-and-speeds-basics.md#shapeoko-chiploads-guideline)\), and considering bamboo is somewhat easier to cut than "hard wood", I picked a target chipload value of 0.002''/ 0.055mm in the high-end of the range.
+* Using the **target chipload guideline** \(see [Feeds & speeds](feeds-and-speeds-basics.md#Carvera-chiploads-guideline)\), and considering bamboo is somewhat easier to cut than "hard wood", I picked a target chipload value of 0.002''/ 0.055mm in the high-end of the range.
 * While regular pocketing toolpaths would have worked fine, I chose to use an **adaptive clearing** toolpath, and with a stepover/radial width of cut/optimal load of 0.0315'' / 0.8mm \(13% of endmill diameter, a very conservative value for wood\)
 * After taking **chip thinning** into account for a 13% stepover, the corrected target chipload is 0.0327'' / 0.083mm
 
@@ -167,7 +167,7 @@ Then came the rewarding moment of inserting the inlay in the base, for a perfect
 
 ![](.gitbook/assets/assembly.jpeg)
 
-To remove the excess material, one way is to leave a large cutout depth, then use a bandsaw to cut in-between the base and the inlay base. I chose instead to use the Shapeoko to do a simple surfacing operation with a square endmill:
+To remove the excess material, one way is to leave a large cutout depth, then use a bandsaw to cut in-between the base and the inlay base. I chose instead to use the Carvera to do a simple surfacing operation with a square endmill:
 
 ![](.gitbook/assets/surfacing.jpeg)
 

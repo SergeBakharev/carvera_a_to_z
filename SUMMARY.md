@@ -2,13 +2,13 @@
 
 * [Introduction](README.md)
 * [CNC workflow](workflow.md)
-* [Anatomy of a Shapeoko](anatomy-of-a-shapeoko.md)
+* [Anatomy of a Carvera](anatomy-of-a-Carvera.md)
 * [CAD, CAM, and G-code](cad-cam-tools.md)
 * [Cutters & collets](cutters.md)
 * [Feeds & speeds](feeds-and-speeds-basics.md)
 * [Toolpaths](toolpath-basics.md)
 * [Workholding](workholding.md)
-* [Shapeoko setup](dust-collection.md)
+* [Carvera setup](dust-collection.md)
 * [Running a job](first-cuts.md)
 * [Squaring, surfacing, tramming](squaring.md)
 * [Dimensional accuracy](x-y-z-calibration.md)
@@ -16,6 +16,6 @@
 * [Usecases: cutting plastics](cutting-plastics.md)
 * [Usecases: cutting metal](cutting-metal.md)
 * [Troubleshooting & maintenance](maintenance.md)
-* [HW upgrades](upgrading-the-machine.md)
+* [Enhancements](enhancements.md)
 * [Glossary](glossary.md)
 

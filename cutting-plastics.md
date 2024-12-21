@@ -10,7 +10,7 @@ To ensure heat removal, you should either cut lots of thin chips very quickly \(
 
 If you are going for the high RPM option, a sharp cutter and a chipload of 0.002'' should do the trick for most of the situations.
 
-If you are going for low RPMs, then you should aim for the high-end of the recommended chipload range. As discussed in the [Feeds & speeds](feeds-and-speeds-basics.md#shapeoko-chiploads-guideline) section, for a 1/4'' endmill in plastics, this is between 0.005''/ 0.13mm and 0.01'' / 0.25mm. Such chiploads are hard to reach with 3-flute endmills. For example on the Dewalt router at its minimum RPM of 16,000, and at the highest possible feedrate \(196.85''/ 5000mm per min\), the chipload maxes out at ~197 / \(3×16,000\) = 0.004''.
+If you are going for low RPMs, then you should aim for the high-end of the recommended chipload range. As discussed in the [Feeds & speeds](feeds-and-speeds-basics.md#Carvera-chiploads-guideline) section, for a 1/4'' endmill in plastics, this is between 0.005''/ 0.13mm and 0.01'' / 0.25mm. Such chiploads are hard to reach with 3-flute endmills. For example on the Dewalt router at its minimum RPM of 16,000, and at the highest possible feedrate \(196.85''/ 5000mm per min\), the chipload maxes out at ~197 / \(3×16,000\) = 0.004''.
 
 A usual solution is to use a single-flute \(**O-flute**\) endmill, this will allow a higher chipload at a comfortably slow feed rate. Recommended chiploads for smaller tools \(1/8'' and below\) are easier to reach, even with two flute endmills. Another solution is to use even lower RPMs \(below 10k\), but that is only possible for spindle owners, not for Makita/Dewalt routers.
 

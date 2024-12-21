@@ -2,7 +2,7 @@
 
 ## Squaring the machine \(rails part\)
 
-Squaring the machine is covered in the Shapeoko assembly instructions, this section just adds a few notes on why this matters, and a few tips.
+Squaring the machine is covered in the Carvera assembly instructions, this section just adds a few notes on why this matters, and a few tips.
 
 In the best case scenario, bringing the gantry to the front side, tightening the front screws, sliding the gantry to the back, and tightening the back screws is enough to make the gantry square to the Y rails. Here's a view from the top with the gantry pushed all the way back or all the way to the front steel plates, ideally the side plates should make contact simultaneously, leaving no gap on either side:
 
@@ -29,9 +29,9 @@ Once the machine is reasonably square as checked when moving the gantry manually
 
 ## Squaring the machine \(belt tension part\)
 
-Indeed, the belts have a default pitch of 2mm, which translates to requiring 40 steps of the motor to move by 1mm as described in [Anatomy of a Shapeoko](anatomy-of-a-shapeoko.md#pulleys-and-belts) section. But since we tension the belts, they stretch and their actual pitch changes a little bit depending on the belt tension. Now, if the belt on the left Y axis and the belt on the right Y axis are not tensioned evenly, they end up having a different effective pitch. When jogging the gantry along Y, for the same number of motor steps commanded on the left and right stepper motors, the left and right sides of the gantry will end up moving by a different amount, throwing the gantry out of square. The longer the travel the larger the offset between the two sides, so this is most visible when starting from Home position in the back, and then jogging the gantry all the way to the front of the machine:
+Indeed, the belts have a default pitch of 2mm, which translates to requiring 40 steps of the motor to move by 1mm as described in [Anatomy of a Carvera](anatomy-of-a-Carvera.md#pulleys-and-belts) section. But since we tension the belts, they stretch and their actual pitch changes a little bit depending on the belt tension. Now, if the belt on the left Y axis and the belt on the right Y axis are not tensioned evenly, they end up having a different effective pitch. When jogging the gantry along Y, for the same number of motor steps commanded on the left and right stepper motors, the left and right sides of the gantry will end up moving by a different amount, throwing the gantry out of square. The longer the travel the larger the offset between the two sides, so this is most visible when starting from Home position in the back, and then jogging the gantry all the way to the front of the machine:
 
-![](.gitbook/assets/shapeoko-mismatched-belt-pitches.png)
+![](.gitbook/assets/Carvera-mismatched-belt-pitches.png)
 
 But how do we _measure_ belt tension to make them equal? **@LiamN** on the community forum came up with a [great write-up](https://community.carbide3d.com/t/measuring-belt-tension-squaring-and-calibration/24712) about two methods for this: either measuring how much force it takes to pull the belt away from the rail by a given distance using a luggage scale, or measuring the frequency of the sound it produces when pinched with a smartphone app. I like this second method better since it is so straightforward.
 

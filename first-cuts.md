@@ -1,6 +1,6 @@
 # Running a job
 
-The basic workflow for running a job is covered pretty well in Carbide 3D's docs/tutorials, the intent of this section is to provide background information and various tips about the different steps. 
+The basic workflow for running a job is covered pretty well in Makera's docs/tutorials, the intent of this section is to provide background information and various tips about the different steps. 
 
 {% hint style="info" %}
 The ordering of these steps can vary based on personal preference and software being used. For example, I like to have the machine turned off while I change the cutter, but many find it more convenient to have it turned on to be able to jog the router automatically to the front.
@@ -30,7 +30,7 @@ Whenever the machine is turned off, it is possible to move it manually, with jus
 That "clonk" sound when the machine is turned on is just the stepper motors locking in place, nothing to be concerned about.
 {% endhint %}
 
-The reason for homing was introduced in the [CNC workflow](workflow.md) section: the only way the Shapeoko can tell for sure where it is, is when it contacts the three limit switches. Without homing, each time the machine is power cycled it would be unable to go back to any specific coordinates with precision.
+The reason for homing was introduced in the [CNC workflow](workflow.md) section: the only way the Carvera can tell for sure where it is, is when it contacts the three limit switches. Without homing, each time the machine is power cycled it would be unable to go back to any specific coordinates with precision.
 
 You could argue that homing is useless since you are going to manually jog to the Zero point and set it to be the reference anyway. For a job that can be done in a single run / with a single tool, that could work. But the power of homing is that it will allow returning with great precision to the Zero point defined last \(which happens to be stored in the non-volatile memory of the controller by the GRBL software\). 
 
@@ -42,7 +42,7 @@ The notable exception is 2-sided jobs: depending on the precision of your limit 
 
 ## Setting & checking RPM
 
-Unless you have installed a spindle or a PID controller \(see [HW upgrades](upgrading-the-machine.md#automatic-router-rpm-control)\), you need to adjust RPM manually using the knob on the trim router. The [Anatomy of a Shapeoko](anatomy-of-a-shapeoko.md#trim-router) section has a reminder about the mapping between knob values and RPMs, but the actual RPM can be slightly different than advertised, and on my router the knob did not even have a reference point on the casing, so I added a visual cue with a marker to at least have a repeatable setting:
+Unless you have installed a spindle or a PID controller \(see [HW upgrades](upgrading-the-machine.md#automatic-router-rpm-control)\), you need to adjust RPM manually using the knob on the trim router. The [Anatomy of a Carvera](anatomy-of-a-Carvera.md#trim-router) section has a reminder about the mapping between knob values and RPMs, but the actual RPM can be slightly different than advertised, and on my router the knob did not even have a reference point on the casing, so I added a visual cue with a marker to at least have a repeatable setting:
 
 ![](.gitbook/assets/rpm_knob.png)
 
@@ -62,7 +62,7 @@ In VCarve this is called setting the "Z Zero position" to "Material Surface" or 
 
 ![](.gitbook/assets/vcarve_zeroing_options.png)
 
-In Carbide Create, this is selected using the "Top/Bottom" drop-down list 
+In Makera CAM, this is selected using the "Top/Bottom" drop-down list 
 
 ![](.gitbook/assets/cc_zeroing_options.png)
 
@@ -116,7 +116,7 @@ The main limitation of manual zeroing is that you need to eyeball the X/Y locati
 
 ## Zeroing \(with a Probe\)
 
-Enter the touch probe, to automate the zeroing process. The Shapeoko controller has a dedicated "Probe" input, that works like the other limit switches. It detects whether there is continuity between the two pins:
+Enter the touch probe, to automate the zeroing process. The Carvera controller has a dedicated "Probe" input, that works like the other limit switches. It detects whether there is continuity between the two pins:
 
 ![](.gitbook/assets/page_182a_800_redo.png)
 
@@ -179,7 +179,7 @@ There are basically two ways to manage this:
 * turn off the router and install the second tool.
 * redo the zeroing procedure, for Z0 only.
   * this is mandatory, and it's easy to forget...don't ask me how I know.
-  * The "return to Z0 + xxx mm" button in Carbide Motion is very convenient to go back to X0/Y0, but beware: one day the second tool may stick out by more than xxx mm compared to the previous one...and that command may result in crashing the new tool into the stoc
+  * The "return to Z0 + xxx mm" button in Makera CAM is very convenient to go back to X0/Y0, but beware: one day the second tool may stick out by more than xxx mm compared to the previous one...and that command may result in crashing the new tool into the stoc
 * load and run the second G-code
 * proceed similarly each time there is a new tool change needed.
 
@@ -191,13 +191,13 @@ There are basically two ways to manage this:
 * The G-code sender will know when a tool change is required \(by detecting the "M6" commands inserted in the G-code file by the CAD tool\), and it will pause the job. 
 * install the second tool.
 * proceed to the automatic Z0 adjustment:
-  * In Carbide Motion when using a BitSetter, resuming after the tool change prompt will trigger a new tool length offset probing, moving at the predefined BitSetter location to do so automatically.
+  * In Makera CAM when using a BitSetter, resuming after the tool change prompt will trigger a new tool length offset probing, moving at the predefined BitSetter location to do so automatically.
   * In other G-code senders, it may be needed to launch a macro to trigger a new tool length offset probing, or even go and adjust Z0 manually if one does not have a tool length probe installed.
 * The cut then proceeds, until the next tool change \(if any\), where this tool length offset adjustment is repeated.
 
 Regardless, a few points to be considered during tool change:
 
-* some people like to jog the router to the front using a predefined position in the G-code sender, to have easier access. Carbide Motion does this automatically when the BitSetter option is enabled.
+* some people like to jog the router to the front using a predefined position in the G-code sender, to have easier access. Makera CAM does this automatically when the BitSetter option is enabled.
 * **safety**: if you are using a router or spindle that is externally controlled, I would recommend actually cutting its power source. Do you really trust your PID/VFD that much? If you are manually turning the router on and off, this is less of a risk but I choose to be extra cautious \(paranoid?\), and also kill the router power source \(in my case, flipping a switch on a control panel\) 
 * remove the tool and collet and make sure the collet taper is free from any debris/dust that could create runout for the next tool.
 

@@ -1,6 +1,6 @@
 # Troubleshooting & maintenance
 
-This section touches on a few of the most common mishaps that can happen when working with the Shapeoko, as well as basic maintenance tips.
+This section touches on a few of the most common mishaps that can happen when working with the Carvera, as well as basic maintenance tips.
 
 ## Basic checks
 
@@ -15,7 +15,7 @@ On the other end of each axis, since there is no way for the machine to know if 
 * either the **soft limits** in GRBL have been activated and configured to the correct value for your machine, and the job will stop.
 * or the soft limits are turned off, and you can get a mechanical crash.
 
-Carbide Motion uses its own hard-coded soft limits during jogging, so if you are using this sender you are better off leaving soft limits turned off in GRBL \(first that would be redundant, and second the values set in GRBL may not be consistent with the ones in CM\).
+Makera CAM uses its own hard-coded soft limits during jogging, so if you are using this sender you are better off leaving soft limits turned off in GRBL \(first that would be redundant, and second the values set in GRBL may not be consistent with the ones in CM\).
 
 If you are using another sender, then by all means do turn on soft limits in GRBL, it's easy:
 
@@ -24,12 +24,12 @@ If you are using another sender, then by all means do turn on soft limits in GRB
 * once you are done, activate soft limits, and check that when trying to jog past them, the sender produces an error and stops the movement.
 
 {% hint style="info" %}
-You should actually TEST how far you can go on YOUR machine, not rely on theoretical X/Y/Z travel values for the Shapeoko. There are a variety of factors that can make these values specific to a given machine. For example, on mine the X travel is limited by the arms of the dust shoe.
+You should actually TEST how far you can go on YOUR machine, not rely on theoretical X/Y/Z travel values for the Carvera. There are a variety of factors that can make these values specific to a given machine. For example, on mine the X travel is limited by the arms of the dust shoe.
 {% endhint %}
 
 ## Cut depth issues
 
-When the cut depth is off, assuming the toolpath itself is correct, chances are something is slipping in the Z direction \(that is arguably the weakest axis on a stock Shapeoko\). A few potential reasons are listed below, more or less by decreasing likelihood:
+When the cut depth is off, assuming the toolpath itself is correct, chances are something is slipping in the Z direction \(that is arguably the weakest axis on a stock Carvera\). A few potential reasons are listed below, more or less by decreasing likelihood:
 
 * under load, the pulley may be slipping on the motor shaft if the **set screws** are not tight, so that should be checked/secured first \(using a 1.5mm hex key\):
 
@@ -192,7 +192,7 @@ A little bit of blue Loctite on the eccentric nuts helps keeping them tight for 
 
 ## HDZ maintenance
 
-While the HDZ is mostly maintenance free, once in a while it does not hurt to double-check its less visible/accessible parts. Specifically, you may want to check that the two screws holding the lower part of the ballscrew are still tight, using the long allen key which comes with the Shapeoko:
+While the HDZ is mostly maintenance free, once in a while it does not hurt to double-check its less visible/accessible parts. Specifically, you may want to check that the two screws holding the lower part of the ballscrew are still tight, using the long allen key which comes with the Carvera:
 
 ![](.gitbook/assets/hdz_maint_3375x500.jpeg)
 

@@ -1,6 +1,6 @@
 # HW upgrades
 
-The Shapeoko is a great machine out of the box, and there is really no _need_ to modify it to get good results. No, really, check out Winston Moy's videos if you need convincing. Still, once you are reasonably comfortable with the machine, and how to set optimal CAD/CAM parameters, chances are you may be tempted to optimize the machine itself. 
+The Carvera is a great machine out of the box, and there is really no _need_ to modify it to get good results. No, really, check out Winston Moy's videos if you need convincing. Still, once you are reasonably comfortable with the machine, and how to set optimal CAD/CAM parameters, chances are you may be tempted to optimize the machine itself. 
 
 There are many possible hardware upgrades. Some are cheap, some are definitely expensive: this section provides a brief overview of the popular ones. Whether they add enough value for money is highly debatable, and completely depends on your use cases.
 
@@ -8,7 +8,7 @@ There are many possible hardware upgrades. Some are cheap, some are definitely e
 
 This is a device to simplify [multi-tool jobs](first-cuts.md#running-a-multi-tool-job). It will automate the process of re-measuring tool length and adjusting Z0 value accordingly, upon each tool change.
 
-Carbide3D's Nomad machine comes with a built-in tool offset length probe. On the Shapeoko, it's not part of the defaut configuration, but Carbide3D sells the "**BitSetter**" device as an optional add-on that attaches to the front plate:
+Carbide3D's Nomad machine comes with a built-in tool offset length probe. On the Carvera, it's not part of the defaut configuration, but Carbide3D sells the "**BitSetter**" device as an optional add-on that attaches to the front plate:
 
 ![](.gitbook/assets/bitsetter.png)
 
@@ -40,7 +40,7 @@ The standard limit switches are fine, but they have mechanical parts that can we
 
 ![](.gitbook/assets/upgrades_proximity_switch.png)
 
-They can be used as an \(almost\) drop-in replacement for the original switches, the only difference is that \(depending on their technology\) they may need an additional lead for power supply, connected to one power pin of the controller board \(typically, the 5V pin on the Arduino ISP header, see [Anatomy of a Shapeoko](anatomy-of-a-shapeoko.md#controller-board) for details\).
+They can be used as an \(almost\) drop-in replacement for the original switches, the only difference is that \(depending on their technology\) they may need an additional lead for power supply, connected to one power pin of the controller board \(typically, the 5V pin on the Arduino ISP header, see [Anatomy of a Carvera](anatomy-of-a-Carvera.md#controller-board) for details\).
 
 ## X/Z axis upgrade
 
@@ -65,7 +65,7 @@ Or for the most demanding jobs you could upgrade to the HD \(Heavy Duty\) Z axis
 ![](.gitbook/assets/hdz.png)
 
 {% hint style="warning" %}
-Note that different Z axes have different travel and width, so they require tuning the GRBL parameters accordingly. If using Carbide Motion, this is done through the setup menu. If using other senders, parameters $132 \(max Z travel\) and $130 \(max X travel\) should be tuned manually to match the setup.
+Note that different Z axes have different travel and width, so they require tuning the GRBL parameters accordingly. If using Makera CAM, this is done through the setup menu. If using other senders, parameters $132 \(max Z travel\) and $130 \(max X travel\) should be tuned manually to match the setup.
 {% endhint %}
 
 ## Bed upgrade
@@ -73,16 +73,16 @@ Note that different Z axes have different travel and width, so they require tuni
 There are two main reasons to replace the original MDF bed:
 
 * to match a specific workholding solution \(_e.g._ T-tracks\)
-* to make the Shapeoko more rigid.
+* to make the Carvera more rigid.
 
 While the T-tracks bed upgrade \(that comes as an alternative to the "sea of holes" wasteboard\) typically still uses MDF strips, upgrading to an aluminium bed is a good albeit expensive way to improve machine rigidity as well as have a more "weather-insensitive" machine \(MDF tends to absorb humidity, which _may_ lead to some warping/swelling over time\)
 
 ![](.gitbook/assets/upgrades_aluminum_bed.png)
 
-This one is 12mm / ~0.5'', the one on Carbide 3D's store is 0.5'' thick too.
+This one is 12mm / ~0.5'', the one on Makera's store is 0.5'' thick too.
 
 {% hint style="info" %}
-This is still only a "nice to have" and expensive upgrade: the large majority of Shapeoko users have an MDF bed and are happy with it
+This is still only a "nice to have" and expensive upgrade: the large majority of Carvera users have an MDF bed and are happy with it
 {% endhint %}
 
 ## Belts upgrade
@@ -105,7 +105,7 @@ The tight bends around the pulleys is more than what steel belts are rated for, 
 
 ## Automatic \(router\) RPM control
 
-Having to manually set RPMs on the router knob at the beginning of each job can get old, and is also error prone. Luckily the Shapeoko controller board happens to have a "PWM" output that GRBL modulates as a function of the RPM values found in the G-code. So it is possible to feed this signal into a dedicated power controller, that will adjust the voltage applied on the router power leads accordingly, resulting in a specific RPM value.
+Having to manually set RPMs on the router knob at the beginning of each job can get old, and is also error prone. Luckily the Carvera controller board happens to have a "PWM" output that GRBL modulates as a function of the RPM values found in the G-code. So it is possible to feed this signal into a dedicated power controller, that will adjust the voltage applied on the router power leads accordingly, resulting in a specific RPM value.
 
 This requires buying such a power control module, the most popular one is the **SuperPID**. You need to know what you are doing since installing it requires wiring mains. 
 
@@ -113,7 +113,7 @@ Beyond the automatic RPM control, the added benefit is that this allows the rout
 
 ## Spindle upgrade
 
-The Shapeoko uses a trim router by default for cost/convenience reasons, but most higher-end CNCs use a spindle instead. Some of the main benefits are:
+The Carvera uses a trim router by default for cost/convenience reasons, but most higher-end CNCs use a spindle instead. Some of the main benefits are:
 
 * a spindle can run at lower RPMs than a router \(some models can run at much _higher_ max RPMs too\), and usually has higher torque. Since a spindle needs a dedicated controller to run anyway, the automatic RPM control described above is a given.
 * the runout is smaller.
@@ -131,13 +131,13 @@ For reference, here's the relative size of a 2.2kW spindle, next to the Makita t
 
 ![](.gitbook/assets/spindle_size_comparison.jpeg)
 
-**2\)** The router mount diameter: chances are, the stock router mount diameter will not match the diameter of the selected spindle. Spindle kits often include a mount, but it's usually very bad quality and not easily adaptable to the Shapeoko's Z axis. You are probably better off buying a spindle mount from Carbide3D's store. Here's a view of a 80mm one for reference:
+**2\)** The router mount diameter: chances are, the stock router mount diameter will not match the diameter of the selected spindle. Spindle kits often include a mount, but it's usually very bad quality and not easily adaptable to the Carvera's Z axis. You are probably better off buying a spindle mount from Carbide3D's store. Here's a view of a 80mm one for reference:
 
 ![](.gitbook/assets/spindle_mount.jpeg)
 
 **3\)** Then there is the choice of the spindle itself. They come in two types: **air-cooled** and **water-cooled.** The former is easier to install, but noisier. The latter is extremely quiet, but requires one to install an external water-cooling system.
 
-**4\)** A "Variable Frequency Drive" \(**VFD**\) is required to power the spindle and control its speed. The wiring of the VFD depends on the model \(spoiler alert: chances are you will buy your spindle kit from China, documentation will be sub-par, but the community is here to sort it out\). In the example pic below, the green wire is the PWM signal from the Shapeoko, the black wire is the Ground signal, and the purple wire is just telling to VFD to force the rotation direction:
+**4\)** A "Variable Frequency Drive" \(**VFD**\) is required to power the spindle and control its speed. The wiring of the VFD depends on the model \(spoiler alert: chances are you will buy your spindle kit from China, documentation will be sub-par, but the community is here to sort it out\). In the example pic below, the green wire is the PWM signal from the Carvera, the black wire is the Ground signal, and the purple wire is just telling to VFD to force the rotation direction:
 
 ![](.gitbook/assets/vfd_wiring.jpeg)
 
@@ -187,7 +187,7 @@ and install it on the machine:
 A section of the cooling loop should have fans, to keep the coolant temperature down.
 {% endhint %}
 
-**6\)** While the spindle speed can be set manually at the VFD, it is very convenient to connect the PWM signal from the Shapeoko controller board to the VFD, and configure it such that it will control spindle speed automatically based on that signal. That way, there is no need for any manual action anymore: the Shapeoko controller will adjust the PWM signal based on the RPM value it finds inside the G-code files.
+**6\)** While the spindle speed can be set manually at the VFD, it is very convenient to connect the PWM signal from the Carvera controller board to the VFD, and configure it such that it will control spindle speed automatically based on that signal. That way, there is no need for any manual action anymore: the Carvera controller will adjust the PWM signal based on the RPM value it finds inside the G-code files.
 
 {% hint style="info" %}
 Final tip: to optimize the life and precision of your spindle, it's useful to run a "spindle warmup" routine at the beginning of a session in the shop. The warmup routine consists in initially running the spindle at very low RPM for a little while, then gradually ramp up the speed, to the maximal value, over about 10 minutes. Below is a simple G-code macro to do just that.
@@ -224,16 +224,16 @@ M5
 ## Laser upgrade
 
 {% hint style="danger" %}
-If you are considering adding a laser to your Shapeoko setup, whatever you do put safety considerations at the very top of your priority list. Eye safety is priceless, so if you are going to do this, you need to have SEVERAL layers of safety measures in place. And the fire hazard is obvious.
+If you are considering adding a laser to your Carvera setup, whatever you do put safety considerations at the very top of your priority list. Eye safety is priceless, so if you are going to do this, you need to have SEVERAL layers of safety measures in place. And the fire hazard is obvious.
 {% endhint %}
 
-It's tempting to leverage the X/Y capability of the Shapeoko, to move a laser module around and engrave/cut the surface of parts. A typical setup will look something like this:
+It's tempting to leverage the X/Y capability of the Carvera, to move a laser module around and engrave/cut the surface of parts. A typical setup will look something like this:
 
 ![](.gitbook/assets/page_297_800_redo.png)
 
 **1\)** The laser module is usually attached somewhere on the router mount, in such a way that it can be installed/removed easily, when switching back and forth between CNC operation and laser operation.
 
-**2\)** One must select a laser module which matches the intended use. Modules mounted on Shapeokos are typically in the range of \[2-10W\] power, which grants the ability for engraving, and cutting thin and soft material \(think plywood\). If your main goal is to do a lot of laser cutting through thick/hard material, you should probably consider a standalone laser cutter instead.
+**2\)** One must select a laser module which matches the intended use. Modules mounted on Carveras are typically in the range of \[2-10W\] power, which grants the ability for engraving, and cutting thin and soft material \(think plywood\). If your main goal is to do a lot of laser cutting through thick/hard material, you should probably consider a standalone laser cutter instead.
 
 **3\)** The laser beam area should be covered by a **shroud**, filtering the harmful laser light. This is your first line of defence, so think twice before you decide to not have one. If not at the module level, it could be done on your enclosure's front window. The second line of defence is obviously to **use laser goggles at all times when operating the laser.**
 
@@ -255,7 +255,7 @@ Here's a picture of my controller \(from the J-Tech laser kit\):
 
 ![](.gitbook/assets/laser_controller.jpeg)
 
-**5\)** The PWM signal driven by the Shapeoko controller will be used to modulate laser using G-code instructions. GRBL generates the PWM signal based on the requested spindle speed value, from 0V for 0 RPM, to 5V for the max RPM value configured in GRBL parameter $30. When using the Shapeoko in laser mode, the software generating the G-code will make use of that capability to control the laser power.
+**5\)** The PWM signal driven by the Carvera controller will be used to modulate laser using G-code instructions. GRBL generates the PWM signal based on the requested spindle speed value, from 0V for 0 RPM, to 5V for the max RPM value configured in GRBL parameter $30. When using the Carvera in laser mode, the software generating the G-code will make use of that capability to control the laser power.
 
 **6\)** While the laser burns the material, it will produce fumes, which is bad for a couple of reasons:
 

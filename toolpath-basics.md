@@ -9,7 +9,7 @@ For a specific object geometry/feature defined in the CAD tool, the CAM tool wil
 "**3D**" toolpaths correspond to cutting a 3D feature, and potentially moving the three axes of the machine simultaneously. 
 
 {% hint style="warning" %}
-Not all toolpaths presented below are available in the standard version of Carbide Create: 3D toolpaths, adaptive toolpaths, REST machining, and the roughing vs. finishing toolpaths feature require the use of other CAM programs. If you are just starting you can ignore those, Carbide Create is perfect to learn simple 2D toolpaths before moving on to more complex projects. The intent here is to show what is available in various CAM programs, and then everyone can decide whether to invest money \(_e.g._ VCarve, Carbide Create Pro\) or time \(_e.g._ Fusion 360\) to access those features. 
+Not all toolpaths presented below are available in the standard version of Makera CAM: 3D toolpaths, adaptive toolpaths, REST machining, and the roughing vs. finishing toolpaths feature require the use of other CAM programs. If you are just starting you can ignore those, Makera CAM is perfect to learn simple 2D toolpaths before moving on to more complex projects. The intent here is to show what is available in various CAM programs, and then everyone can decide whether to invest money \(_e.g._ VCarve, Makera CAM Pro\) or time \(_e.g._ Fusion 360\) to access those features. 
 {% endhint %}
 
 Let's take the simplest example of a 50×50mm square shape in a CAD tool, placed in the center of a 100×100×10mm stock material, with the zero point defined in the lower-left corner, and using a 6mm endmill \(~1/4''\) :
@@ -29,7 +29,7 @@ Extremely simple, but it already illustrates a few interesting general parameter
 * the **zero \(X0/Y0/Z0\) point**: in this example, it is positioned in the lower-left corner of the top of the stock.
 * since the toolpath defines the trajectory of the _tip_ of the endmill, an endmill positioned at the zero point touches the stock surface, so the very first action is to raise the endmill up to the **retract height** \(Z offset above Z0\), to avoid scraping the surface when moving to the cutting area.
 * the red lines illustrate rapid moves \("**rapids**"\). The first move is from the zero point \(+ retract height\), to the point where the endmill will start **plunging** into the material \(vertical green line\)
-* The example above illustrates a straight plunge, since this is what Carbide Create generates, but plunging vertically is a bit hard on the endmill, so there are other approaches to ensure a smoother entry into the material. Below are examples of **linear ramping** and **helix ramping** \(using Fusion360 CAM preview\) :
+* The example above illustrates a straight plunge, since this is what Makera CAM generates, but plunging vertically is a bit hard on the endmill, so there are other approaches to ensure a smoother entry into the material. Below are examples of **linear ramping** and **helix ramping** \(using Fusion360 CAM preview\) :
 
 ![](.gitbook/assets/toolpaths_linear_ramping.png)
 
@@ -50,7 +50,7 @@ On the following snapshot, a few circles of the same diameter as the endmill wer
 * the **stepover \(**a.k.a. ****width of cut, a.k.a. radial width of cut\) ****parameter of the toolpath controls how close to each other successive loops of the toolpaths are, in this case the stepover was chosen to be 50% of the endmill diameter for simplicity. Check out the [Feeds & speeds](feeds-and-speeds-basics.md) section for recommended stepover values, and how this affects chip thinning and ultimately the optimal feeds and speeds.
 * in **corners** two things happen:
   * the cutter engagement temporarily increases \(see tool engagement in the [Feeds & speeds](feeds-and-speeds-basics.md#corners) section\). Nothing to be concerned about in many cases, but this limits the feeds and speeds to being more conservative than they could be. This is where advanced toolpaths help, _e.g._ adaptive clearing, more on this later.
-  * obviously, the round endmill cannot reach all the way into the corners, so some material is left and all corners end up rounded to the diameter of the endmill. One way to mitigate this is to use a smaller endmill, but cutting a large pocket using a very small endmill would take forever, so a better alternative is first cut the pocket normally with a large endmill, then run a second toolpath will a smaller endmill, that will only work locally in the corners. In advanced CAM tools, this is easy using the "rest machining" option described later below, where the CAM is smart enough to figure out how much material is left and where and to produce a second toolpath with a smaller tool that will only cut there. At the time of writing Carbide Create does not support rest machining, but you could fake it by manually creating additional geometry. In the example below, a 4.5×4.5mm square was added in one corner, with an associated pocket toolpath using a 1/16'' endmill. The corner will still not be perfectly square, but its radius will be 4 times smaller, so it will look much closer to square.
+  * obviously, the round endmill cannot reach all the way into the corners, so some material is left and all corners end up rounded to the diameter of the endmill. One way to mitigate this is to use a smaller endmill, but cutting a large pocket using a very small endmill would take forever, so a better alternative is first cut the pocket normally with a large endmill, then run a second toolpath will a smaller endmill, that will only work locally in the corners. In advanced CAM tools, this is easy using the "rest machining" option described later below, where the CAM is smart enough to figure out how much material is left and where and to produce a second toolpath with a smaller tool that will only cut there. At the time of writing Makera CAM does not support rest machining, but you could fake it by manually creating additional geometry. In the example below, a 4.5×4.5mm square was added in one corner, with an associated pocket toolpath using a 1/16'' endmill. The corner will still not be perfectly square, but its radius will be 4 times smaller, so it will look much closer to square.
 
 ![](.gitbook/assets/toolpaths_cc_fake_rest_machining.png)
 
@@ -64,7 +64,7 @@ To illustrate the former, considering the 6mm endmill used in this example and a
 
 ![](.gitbook/assets/toolpaths_pocketing_lowdoc.png)
 
-If we wanted instead to go for a high DOC \(say full pocket depth _i.e.,_ 100% of endmill diameter in this case\) and a low WOC \(say 20%\), we would also need to take care of the initial clearing down to full depth, because just plunging to full depth and starting to cut the pocket would initially involve a slotting cut \(100% stepover\) at full depth, which for some materials may be too much to take for the Shapeoko.
+If we wanted instead to go for a high DOC \(say full pocket depth _i.e.,_ 100% of endmill diameter in this case\) and a low WOC \(say 20%\), we would also need to take care of the initial clearing down to full depth, because just plunging to full depth and starting to cut the pocket would initially involve a slotting cut \(100% stepover\) at full depth, which for some materials may be too much to take for the Carvera.
 
 If your CAM tool allows, you can just use the option of helical ramping down to the full depth of the pocket, as in this Fusion360 example:
 
@@ -74,7 +74,7 @@ This allows reaching full depth without ever engaging the tool completely, and t
 
 ![](.gitbook/assets/toolpaths_pocketing_highdoc_f360_lowwoc.png)
 
-In Carbide Create, you could emulate this by creating two toolpaths: 
+In Makera CAM, you could emulate this by creating two toolpaths: 
 
 * a first one using regular low DOC/50%-stepover pocketing, down to full depth, on a small area:
 
@@ -112,7 +112,7 @@ Sometimes this is no big deal and you can just proceed with the reduced DOC and 
 
 * The orange square is the original shape
 * The black square is the extra geometry, created to be larger than the original square by a value of the endmill diameter plus a small margin.
-* Selecting the two squares, Carbide Create produces the pocket toolpath shown in blue
+* Selecting the two squares, Makera CAM produces the pocket toolpath shown in blue
 * The tool first goes around the inside of the outer square: no benefit there, this results in slotting.
 * But then the tool proceeds to follow the second/inner blue path, around the outside of the original square, and this is where pocketing helps: the tool now just has to remove the thin remaining layer of material, and has some clearance against the opposite wall, so this is like a cutting pass with a very small stepover: this is perfect to minimize forces, and act as a finishing pass.
 
@@ -213,7 +213,7 @@ For every toolpath there are two conflicting needs: minimizing the total runtime
 
 How roughing/finishing is set up depends on the CAD/CAM tool being used:
 
-* Carbide Create does not support \(at the time of writing\) any roughing/finishing option explicitly, but:
+* Makera CAM does not support \(at the time of writing\) any roughing/finishing option explicitly, but:
   * one can manually create additional geometry in the design to do it, as explained above in the alternatives to slotting.
   * or one can define a "fake" roughing tool and declare it to be slightly larger than the tool actually is, and use that tool in the toolpath: this will generate a toolpath that when cut with the real \(slightly smaller\) tool, will leave a thin layer of material around the shapes. Then, generate toolpaths based on the same geometry, but this time using a tool that is declared to have the true size, and run that: it will act as a finishing toolpath and shave off the excess material from the "roughing" pass.
 * Vectric VCarve has explicit options in its toolpath parameters to create an "allowance offset", basically a margin that will be kept when cutting. One can therefore select a geometry and:
@@ -260,17 +260,17 @@ Another way to deal with such problems is to use **lead-in \(**respectively lead
 
 ![](.gitbook/assets/page_134a_800.png)
 
-At the time of writing, this feature is not supported in Carbide Create, but one can fallback to manually adding geometry around the piece to achieve similar results.
+At the time of writing, this feature is not supported in Makera CAM, but one can fallback to manually adding geometry around the piece to achieve similar results.
 
 ## 3D toolpaths
 
-The standard version of Carbide Create does not support them, and the topic is too wide and too specific to be covered here properly, but here is a simple example of milling a donut shape in Fusion360:
+The standard version of Makera CAM does not support them, and the topic is too wide and too specific to be covered here properly, but here is a simple example of milling a donut shape in Fusion360:
 
 ![](.gitbook/assets/toolpaths_3d_example.png)
 
 Many of the concepts of 2D toolpaths apply, but the notion of roughing + finishing will be paramount for 3D, to get both a reasonable job time and a smooth finish. Typically, a large diameter square endmill will be used for roughing, and a small diameter ballnose will be used for finishing.
 
-**Carbide Create Pro** includes support for creating 3D toolpaths from 2D features or from grayscale heightmaps. Since many 3D models lend themselves well to being projected to a heightmap, this opens up the possibility to do very intricate 3D carvings. Here is a simple example of milling a 3D surface in CC Pro, starting with the 3D roughing pass:
+**Makera CAM Pro** includes support for creating 3D toolpaths from 2D features or from grayscale heightmaps. Since many 3D models lend themselves well to being projected to a heightmap, this opens up the possibility to do very intricate 3D carvings. Here is a simple example of milling a 3D surface in CC Pro, starting with the 3D roughing pass:
 
 ![](.gitbook/assets/ccpro_3droughing.PNG)
 
@@ -299,7 +299,7 @@ One way to double-check is to visualize the toolpath from the generated G-code f
 
 ## Toolpath ordering matters
 
-It's easy to understand that the order in which the toolpaths are run \(usually\) matters, but also quite easy to overlook a wrong ordering when a project involves many toolpaths. On the Shapeoko, toolpaths using different tools will be in different G-code files \(since there is no automatic tool changer\), so the likelihood of manually executing the files in the wrong order is small. But multiple toolpaths using the same tool will usually be included into a single file, and the ordering will be as declared in the CAM tool, so a user error is more likely!
+It's easy to understand that the order in which the toolpaths are run \(usually\) matters, but also quite easy to overlook a wrong ordering when a project involves many toolpaths. On the Carvera, toolpaths using different tools will be in different G-code files \(since there is no automatic tool changer\), so the likelihood of manually executing the files in the wrong order is small. But multiple toolpaths using the same tool will usually be included into a single file, and the ordering will be as declared in the CAM tool, so a user error is more likely!
 
 {% hint style="info" %}
 Toolpath preview, and better yet realtime toolpath simulation \(when available\), is the best mitigation against this risk

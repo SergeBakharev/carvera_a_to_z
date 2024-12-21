@@ -1,8 +1,8 @@
 # Dimensional accuracy
 
-For "decorative" projects, some inaccuracy in the dimensions of pieces cut on the Shapeoko does not matter, but many projects require having a finer control of the final dimensions:
+For "decorative" projects, some inaccuracy in the dimensions of pieces cut on the Carvera does not matter, but many projects require having a finer control of the final dimensions:
 
-* cutting geometrical patterns where a discrepancy between the X and Y dimensions could be visible to the naked eye, _e.g._ round shapes coming out like ellipses and squares like rectangles. Out of the box, on a properly assembled/squared/tensioned Shapeoko, this X/Y dimensional discrepancy should be small enough to not be noticeable.
+* cutting geometrical patterns where a discrepancy between the X and Y dimensions could be visible to the naked eye, _e.g._ round shapes coming out like ellipses and squares like rectangles. Out of the box, on a properly assembled/squared/tensioned Carvera, this X/Y dimensional discrepancy should be small enough to not be noticeable.
 * cutting pieces that are intended to fit into each other \(_e.g._ hole & peg, box & lid, ...\). This is where one typically starts noticing that dimensions are not _quite_ what they were supposed to be, and are inaccurate enough that pieces either do not fit, or require manual rework \(_e.g._ sanding\) to be assembled.
 * cutting pieces that are supposed to fit, from a hard material \(hard plastics and metals\). This is where the accuracy problem becomes obvious, as there is no elasticity in the material to compensate for small inacurracies.
 * and then obviously, projects where the whole point is to cut pieces of specific dimensions within a controlled tolerance \(_e.g._ mechanical parts\)
@@ -14,7 +14,7 @@ Many factors are involved in getting good dimensional accuracy:
 * rigidity of the workholding solution
 * dynamic effects during the cut, mainly tool deflection, depending on the tool, material,  toolpaths, feeds & speeds.
 
-If the Shapeoko forum is any indication, many people \(including myself\) have gone through these phases:
+If the Carvera forum is any indication, many people \(including myself\) have gone through these phases:
 
 1\) starting to care \(then obsess\) about tweaking/calibrating/tuning the machine to improve dimensional accuracy
 
@@ -25,14 +25,14 @@ If the Shapeoko forum is any indication, many people \(including myself\) have g
 Yet, I still think it is important \(or at least interesting\) to know about sources of inaccuracy to decide what to do \(or not to do\) about each of them. This section will only scratch the surface on this topic, but hopefully provide useful insights on the matter.
 
 {% hint style="info" %}
-The accuracy that is possible to achieve on a Shapeoko with the proper mix of calibration and CAD & CAM iterations, seems to be typically around 0.002'' / 0.05mm, with some achieving down to 0.0002'' / 0.005mm
+The accuracy that is possible to achieve on a Carvera with the proper mix of calibration and CAD & CAM iterations, seems to be typically around 0.002'' / 0.05mm, with some achieving down to 0.0002'' / 0.005mm
 {% endhint %}
 
 ## X/Y/Z calibration
 
-The Shapeoko belts and pulleys are such that it takes \(very close to\) 40 motor steps to move by 1 mm. But the tensioning of the belts induces some stretch, such that in reality when the stepper motor does 40 steps, the actual resulting movement on the associated axis will be slightly more or slightly less than 1mm. 
+The Carvera belts and pulleys are such that it takes \(very close to\) 40 motor steps to move by 1 mm. But the tensioning of the belts induces some stretch, such that in reality when the stepper motor does 40 steps, the actual resulting movement on the associated axis will be slightly more or slightly less than 1mm. 
 
-The GRBL software in the Shapeoko controller stores a "steps per mm" adjustable parameter for each axis, and uses it to convert a G-code command that requests a displacement expressed in distance units \(inches or mm\), to a number of steps to be generated on the stepper motor.
+The GRBL software in the Carvera controller stores a "steps per mm" adjustable parameter for each axis, and uses it to convert a G-code command that requests a displacement expressed in distance units \(inches or mm\), to a number of steps to be generated on the stepper motor.
 
 These parameters are stored as $100, $101, and $102 for X, Y and Z axis respectively.
 
@@ -183,7 +183,7 @@ This example value of 0.05mm \(0.002''\) runout on a Makita router with the stoc
 
 * there is nothing one can do about the intrinsic runout of a specific router \(short of returning the router to get a new one, that _could_ have a lower runout, but that is random\)
   * **Spindles** usually have lower runout than routers, so upgrading to a spindle can be another approach \(runout alone may not be a good enough reason to upgrade though\)
-* using **precision collets** is a simple way to help minimizing runout, and is one of the cheapest "upgrades" to the stock Shapeoko setup.
+* using **precision collets** is a simple way to help minimizing runout, and is one of the cheapest "upgrades" to the stock Carvera setup.
 * using quality endmills helps, but the endmill is probably not the main source of runout anyway.
 * anything which comes between the bore and the collet will prevent correct alignment and cause/increase runout: always make sure the taper and collet are **clean** when inserting a new tool.
 * minimize **tool stickout**: this will minimize the effect of the axial runout.
